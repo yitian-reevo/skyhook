@@ -89,6 +89,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.3env
+.vscode
+.DS_Store
 
 # Spyder project settings
 .spyderproject

@@ -1,0 +1,101 @@
+{
+    "_id": ObjectId("5cc12a01f2b2cb03b75910bb"),
+    "name": "medium Timeline",
+    "description": "medium 用户时间线模板",
+    "meta": {
+        "policies": [
+            {
+                "phase": "node",
+                "path": "</x>(.*?)$",
+                "aft_fn": [],
+                "type": "re"
+            },
+            {
+                "phase": "node",
+                "path": "$.payload.references.Post[*].*",
+                "aft_fn": [
+                    "extract_items_from_disorder_ids",
+                    {
+                        "path_type": "json",
+                        "unique_path": "$.id"
+                    }
+                ],
+                "type": "json",
+                "limit": [
+                    0.0,
+                    3.0
+                ]
+            },
+            {
+                "phase": "field",
+                "fields": [
+                    {
+                        "filter": "",
+                        "path": "$.title",
+                        "tag": "title",
+                        "aft_fn": [],
+                        "type": "json"
+                    },
+                    {
+                        "filter": "",
+                        "path": "$.id",
+                        "tag": "id",
+                        "aft_fn": [],
+                        "type": "json"
+                    },
+                    {
+                        "filter": "",
+                        "path": "$.uniqueSlug",
+                        "tag": "uniqueSlug",
+                        "aft_fn": [],
+                        "type": "json"
+                    },
+                    {
+                        "filter": "",
+                        "path": "https://medium.com/${id}/${uniqueSlug}",
+                        "tag": "url",
+                        "aft_fn": [],
+                        "type": "template"
+                    },
+                    {
+                        "filter": "",
+                        "path": "[[0]]",
+                        "tag": "author",
+                        "aft_fn": [],
+                        "type": "template"
+                    },
+                    {
+                        "filter": "",
+                        "path": "",
+                        "tag": "latest",
+                        "aft_fn": [
+                            "get_latest"
+                        ],
+                        "type": ""
+                    },
+                    {
+                        "filter": "",
+                        "path": "$.createdAt",
+                        "tag": "timeStamp",
+                        "aft_fn": [],
+                        "type": "json"
+                    }
+                ]
+            }
+        ],
+        "startUrl": "https://medium.com/@[[0]]?format=json"
+    },
+    "createdAt": ISODate("2020-03-15T11:13:30.310+0000"),
+    "slots": [
+        {
+            "type": "string",
+            "name": "medium user name"
+        }
+    ],
+    "default": {
+        "cron": "*/5 * * * *",
+        "gfwBlocked": true,
+        "spider": "common",
+        "category": "medium"
+    }
+}

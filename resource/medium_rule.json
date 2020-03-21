@@ -1,0 +1,18 @@
+{
+    "_id": ObjectId("5cc12a49f2b2cb03b75910bc"),
+    "status": "RUN",
+    "spider": "common",
+    "cron": "*/1 * * * *",
+    "crawlerName": "medium lemonsand",
+    "meta": {
+        "parameters": [
+            "lemonsand"
+        ]
+    },
+    "template": ObjectId("5cc12a01f2b2cb03b75910bb"),
+    "createdAt": ISODate("2020-03-15T02:11:36.625+0000"),
+    "updatedAt": ISODate("2020-03-21T13:25:03.352+0000"),
+    "gfwBlocked": true,
+    "category": "medium",
+    "latest": ""
+}
