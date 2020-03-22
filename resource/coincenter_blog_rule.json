@@ -1,6 +1,6 @@
 {
     "_id": ObjectId("5cbd902e38d34f5074fd2361"),
-    "status": "STOP",
+    "status": "RUN",
     "spider": "common",
     "cron": "*/1 * * * *",
     "crawlerName": "coincenter blog",
