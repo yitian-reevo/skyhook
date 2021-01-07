@@ -17,7 +17,7 @@ idna==2.9
 incremental==17.5.0
 influxdb==5.2.3
 jsonpath-rw==1.4.0
-lxml==4.5.0
+lxml==4.6.2
 mccabe==0.6.1
 parsel==1.5.2
 ply==3.11
